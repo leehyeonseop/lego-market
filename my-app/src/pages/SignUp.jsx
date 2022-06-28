@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-//import styled from "styled-components";
+import FormGroup from "../components/FormGroup";
+import styled from "styled-components";
+
+
 
 function SignUp() {
   let navigate = useNavigate();
@@ -107,32 +110,7 @@ function SignUp() {
   return (
     <form className="signup">
       <h1 className="title">이메일로 회원가입</h1>
-      <div className="form-group">
-        <label htmlFor="email">이메일</label>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          placeholder="이메일을 입력해주세요."
-          value={email}
-          onChange={onChangeEmail}
-        />
-        {emailError && <div className="txt-error">이메일 양식이 아닙니다.</div>}
-      </div>
-      <div className="form-group">
-        <label htmlFor="password">비밀번호</label>
-        <input
-          type="password"
-          name="password"
-          id="password"
-          placeholder="비밀번호를 입력해주세요."
-          value={password}
-          onChange={onChangePassword}
-        />
-        {passwordError && (
-          <div className="txt-error">비밀번호 6자이상 입니다. </div>
-        )}
-      </div>
+      <FormGroup />
       <button className="btn-next" type="button" onClick={onSubmit}>
         다음
       </button>
