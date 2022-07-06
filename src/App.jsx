@@ -1,24 +1,30 @@
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import AddProduct from "./components/page/AddProduct";
-import Login from "./components/page/Login";
-import GlobalStyle from "./styles/GlobalStyle";
+import {createGlobalStyle} from "styled-components"
+import JoinPage from "./components/pages/JoinPage";
+import TopNav from "./components/TopNav";
+import reset from 'styled-reset'
+import PostUploadPage from "./components/pages/PostUploadPage";
+import LoginPage from "./components/pages/LoginPage";
+import { useEffect } from "react";
+import ProfileUpdatePage from "./components/pages/ProfileUpdatePage";
+
+const GlobalStyle = createGlobalStyle`
+  ${reset}
+
+  * { font-family: 'Spoqa Han Sans Neo', 'sans-serif'; }
+`
 
 
 function App() {
 
   return (
-    <div>
-    
-          <BrowserRouter>
-          <GlobalStyle />
-            <Routes>
-              <Route path="/login" element={<Login/>}/>
-              <Route path="/AddProduct" element={<AddProduct/>}/>
-            </Routes>
-          </BrowserRouter>
-          </div>
-          );
+    <div className="App">
+      <GlobalStyle />
+      {/* <LoginPage /> */}
+      {/* <PostUploadPage /> */}
+      {/* <JoinPage /> */}
+      <ProfileUpdatePage />
+    </div>
+  );
 }
 
 export default App;
