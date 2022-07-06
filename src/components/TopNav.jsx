@@ -27,15 +27,14 @@ const ArrowButton = styled.button`
 
 function TopNav(props) {
 
-    const {onClick} = props
+    const {onClick, content} = props
 
     return (
         <Wrapper>
             <ArrowButton type='button'>
                 <img src="/images/icon-arrow-left.png" alt="" />
-                
             </ArrowButton>
-            <StyledButton onClick={onClick} content='업로드'/>
+            <StyledButton onClick={onClick} content={content}/>
         </Wrapper>
         
     )

@@ -17,7 +17,11 @@ const Image = styled.img`
 function ProfileImage(props) {
 
     const {className, imgSrc, marginBottom, marginTop ,width} = props
+
+    console.log('imgSrc length: ', imgSrc.length)
     
+    const mainUrl = "https://mandarin.api.weniv.co.kr/"
+
     return (
         <Wrapper
             className={className} 
@@ -26,14 +30,14 @@ function ProfileImage(props) {
         >
             <Image
             width={width} 
-            src={imgSrc === '' ? "/images/초기프로필.png" : imgSrc } 
+            src={imgSrc.length === 0 ? "/images/초기프로필.png" : mainUrl+imgSrc[0]} 
             alt="프로필사진" />
         </Wrapper>
     )
 }
 
 ProfileImage.defaultProps = {
-    imgSrc : "/images/초기프로필.png"
+    imgSrc : ""
 }
 
 export default ProfileImage
