@@ -9,17 +9,24 @@ const Input = styled.input.attrs({
 `
 
 function ImageSelect(props) {
+    console.log('렌더링')
     
-    const {setImgSrc} = props
+    const {setImgSrc, multiple} = props
+
+    console.log('multiple : ', multiple)
 
     async function getImageUrl(e) {
 
-        console.log('하이')
-        const url = "https://mandarin.api.weniv.co.kr/image/uploadfile"
-    
-        const file = e.target.files[0]
+        const url = multiple ? "https://mandarin.api.weniv.co.kr/image/uploadfiles" : "https://mandarin.api.weniv.co.kr/image/uploadfile"
+
+
+        const files = [...e.target.files]
+
         const formData = new FormData();
-        formData.append("image",file)
+        for(let i of files) {
+            console.log(i)
+            formData.append("image",i)
+        }
     
         const response = await fetch(url, {
             method : "POST",
@@ -27,13 +34,20 @@ function ImageSelect(props) {
         })
     
         const json = await response.json()
-        const filename = json.filename;
+
+        let filenameList = []
+
+        if(multiple) {
+            for(let i of json) {
+                filenameList.push(i.filename)
+            }
+        } else if (multiple === undefined) {
+            filenameList.push(json.filename)
+        }
+        
+        console.log(filenameList)
     
-        const imgURL = "https://mandarin.api.weniv.co.kr/" + filename
-    
-        console.log(imgURL)
-    
-        setImgSrc(imgURL)
+        setImgSrc(filenameList)
     
     }
 
@@ -42,7 +56,7 @@ function ImageSelect(props) {
             <label htmlFor="file" >
                 <img src="/images/프로필설정버튼.png" alt="프로필설정버튼" style={{cursor:"pointer"}}/>
             </label>
-            <Input onChange={getImageUrl}/>
+            <Input onChange={getImageUrl} multiple={multiple}/>
         </div>
     )
 }

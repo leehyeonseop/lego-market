@@ -5,8 +5,6 @@ import ProfileImage from '../ui/ProfileImage'
 import ImageSelect from '../ui/ImageSelect'
 import Textarea from '../ui/Textarea'
 
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyYjQwZjM0MTZjYTFiNjNmODY1NzgwMCIsImV4cCI6MTY2MjE5MzE5NiwiaWF0IjoxNjU3MDA5MTk2fQ.R09vFTYCOzolwJZvJn6kz2dMQl3X-dc61roeus5pXSY"
-
 const Wrapper = styled.div`
     padding: 20px 16px;
     display: flex;
@@ -22,20 +20,42 @@ const StyledImageSelect = styled(ImageSelect)`
     right: 16px;
 `
 
+const Image = styled.img`
+    height: 228px;
+    border: 0.5px solid #DBDBDB;
+    border-radius: 10px;
+`
+
+
+
 function PostUploadPage() {
 
-    const [imgSrc, setImgSrc] = useState('')
+    const [imgSrc, setImgSrc] = useState([])
     const [content, setContent] = useState('')
 
+    const mainUrl = "https://mandarin.api.weniv.co.kr/"
+
     const post = async () => {
+
+        const token = localStorage.getItem("token")
+        console.log('token : ',token)
+
         const url = "https://mandarin.api.weniv.co.kr/post"
+
+        const reqData = {
+            "post": {
+                        "content": content,
+                        "image": imgSrc.join(),
+                }
+        }
+
         const response = await fetch(url, {
             method : "POST",
-            header : {
-                "Authorization" : "Bearer {token}"
-                ,
+            headers : {
+                "Authorization" : `Bearer ${token}`,
                 "Content-type" : "application/json"
-            }
+            },
+            body : JSON.stringify(reqData)
         })
 
         const json = await response.json()
@@ -55,20 +75,25 @@ function PostUploadPage() {
 
     return (
         <div>
-            <TopNav onClick={post}/>
+            <TopNav onClick={post} content='업로드'/>
             <Wrapper>
-                <StyledImageSelect setImgSrc={setImgSrc}/>
-                <StyledProfileImage width='42px'/>
+                <StyledImageSelect setImgSrc={setImgSrc} multiple={true}/>
+                <StyledProfileImage width='42px' imgSrc={[]}/>
                 <div>
                     <Textarea
                         value={content} 
                         onChange={onChange} placeholder="게시글 입력하기 ..."
                     />
                     <ul>
-                        <li>
-                            <img src={imgSrc} width='110px' alt="" />
-                        </li>
+                        {imgSrc.map((item, index) => {
+                            return (
+                                <li key={index}>
+                                    <Image src={mainUrl+item}/>
+                                </li>
+                            )
+                        })}
                     </ul>
+                    
                 </div>
             </Wrapper>
         </div>
