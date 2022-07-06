@@ -1,6 +1,7 @@
-import React, { useLayoutEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import spriteSnsIcon from "../../../asset/sprite-sns-2x.png";
+import { Link } from "react-router-dom";
 
 const LoginArticle = styled.article`
   position: fixed;
@@ -80,34 +81,38 @@ const LoginArticle = styled.article`
   }
 `;
 function LoginPage({ loginState }) {
-  useLayoutEffect(() => {
+  const [shouldRender, setShouldRender] = useState(loginState);
+  useEffect(() => {
     console.log(loginState);
-  });
+    if (loginState) setShouldRender(true);
+  }, [loginState]);
   return (
     <>
-      <LoginArticle loginState={loginState}>
-        <h2 className="visually_hidden">소셜로그인 및 회원가입</h2>
-        <ul className="login-sns wrapper-account">
-          <li className="login-kakao">
-            <a href="#">카카오톡 계정으로 로그인 </a>
-          </li>
-          <li className="login-google">
-            <a href="#">구글 계정으로 로그인</a>
-          </li>
-          <li className="login-facebook">
-            <a href="#">페이스북 계정으로 로그인</a>
-          </li>
-        </ul>
-        <section className="cont-signup wrapper-account">
-          <h2 className="visually_hidden">로그인 및 회원가입</h2>
-          <a href="#" onClick={() => {}}>
-            <strong> 이메일로 로그인</strong>
-          </a>
-          <a href="#" onClick={() => {}}>
-            <strong>회원가입</strong>
-          </a>
-        </section>
-      </LoginArticle>
+      {shouldRender || (
+        <LoginArticle loginState={loginState}>
+          <h2 className="visually_hidden">소셜로그인 및 회원가입</h2>
+          <ul className="login-sns wrapper-account">
+            <li className="login-kakao">
+              <a href="#">카카오톡 계정으로 로그인 </a>
+            </li>
+            <li className="login-google">
+              <a href="#">구글 계정으로 로그인</a>
+            </li>
+            <li className="login-facebook">
+              <a href="#">페이스북 계정으로 로그인</a>
+            </li>
+          </ul>
+          <section className="cont-signup wrapper-account">
+            <h2 className="visually_hidden">로그인 및 회원가입</h2>
+            <a href="#" onClick={() => {}}>
+              <strong> 이메일로 로그인</strong>
+            </a>
+            <Link to="/joinpage">
+              <strong>회원가입</strong>
+            </Link>
+          </section>
+        </LoginArticle>
+      )}
     </>
   );
 }

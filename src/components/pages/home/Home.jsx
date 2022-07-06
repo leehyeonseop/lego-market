@@ -1,12 +1,23 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom'
 import styled from "styled-components";
+import AppFooter from '../../AppFooter';
+import HomeHeader from './HomeHeader';
+import HomeMain from './HomeMain';
 
 const Home = () => {
-  return <HomeDiv>라우터 , 컴포넌트 테스트 페이지 입니다 내용수정(현섭)</HomeDiv>;
+  const navigate = useNavigate();
+  return (
+    <>
+      {/* 임시 버튼 */}
+      <button onClick={()=>navigate(-1)}>뒤로가기</button>  
+      <div className='mainWrapper center'>
+        <HomeHeader />
+        <HomeMain />
+        <AppFooter />
+      </div>
+    </>
+)
 };
 
-const HomeDiv = styled.div`
-  font-size: 30px;
-  margin: 20px;
-`;
 export default Home;
