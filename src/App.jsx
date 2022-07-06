@@ -19,10 +19,10 @@ function App() {
   return (
     <div className="App">
       <GlobalStyle />
-      {/* <LoginPage /> */}
-      {/* <PostUploadPage /> */}
-      {/* <JoinPage /> */}
-      <ProfileUpdatePage />
+      <LoginPage />
+      <PostUploadPage />
+      <JoinPage />
+      {/* <ProfileUpdatePage /> */}
     </div>
   );
 }
