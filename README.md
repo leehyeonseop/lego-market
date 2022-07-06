@@ -1,19 +1,53 @@
-# 라우터 테스트 , 컴포넌트 모음 브랜치 입니다
+# 레고마켓 
+## 개요
+- 레고마켓은 만든 레고를 자랑하기도 하고 중고판매도 하는 서비스 입니다
+- 설명설명
+- 설명설명
 
-- ```<ComponentNav />```
+## [배포 URL]
+- 
+- 테스트 계정
+    - ID : 
+    - PW :
+## 팀원
+- 박재모
+- 이원형
+- 이현섭
+- 우혜빈
 
-  상단 내비 고정 바 , Routes 밖으로 빼두면 고정됩니다 <br>
-    Routes 안에서 라우팅이 이뤄지기 때문입니다.<br>
-    같은 방법으로 아래에 컴포넌트를 붙여서 하단바도 만들 수 있습니다
+## 사용기술
+- 배너같은걸로 )) REACT , STYLED-COMPONENT
 
-- ```<Home />```
+## 요구사항
 
-  임의 메인 페이지 입니다
+## 역활 분담
 
+## 파일 구조
+```
+📦Lego-Market
+ ┣ 📂 public
+ ┃ ┣ 📂 images               // 이미지 파일 폴더
+ ┃ ┣ 📂 icons                // 아이콘 파일 폴더
+ ┃ ┗ index.html
+ ┣ 📂 src
+ ┃ ┣ 📂 components           // 공용 컴포넌트는 components 에 저장 
+ ┃ ┃ ┣ 📂 page               // 하나의 페이지 컴포넌트    
+ ┃ ┃ ┃  ┣ 📂 home            // 하나의 페이지안에 컴포넌트가 여러개가 된다면 폴더 생성
+ ┃ ┃ ┃  ┗ 📂 splash
+ ┃ ┃ ┗ 📂 ui                 // 재사용 가능하 UI 컴포넌트 모음
+ ┃ ┣ 📂 hooks                // 만든 hook이 있으면 
+ ┃ ┣ 📂 styles               // styled-component 스타일 폴더 (분리 여부 고민해야함)
+ ┃ ┃ ┗ 📜 GlobalStyle.jsx
+ ┃ ┣ 📂 utils                // 유틸홤수 정의
+ ┃ ┣ 📜 App.js
+ ┃ ┣ 📜 index.css
+ ┃ ┗ 📜 index.js
+ ┣ 📜 .gitignore
+ ┣ 📜 README.md
+ ┣ 📜 package-lock.json
+ ┗ 📜 package.json
+ ```
+## 기능 구현
 
-- ```<PostUploadPage />```
-  
-  현섭님이 제작한 게시글작성 컴포넌트
-- ```<JoinPage />```
- 
-  현섭님이 제작한 회원가입 컴포넌트
+## 이슈 및 해결
+

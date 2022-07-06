@@ -17,11 +17,19 @@ const InputLabel = styled.label`
 const InputData = styled.input.attrs({
     required : true
 })`
+display:block;
     border: none;
     border-bottom: 1px solid #DBDBDB;
     padding-bottom: 8px;
     width: 100%;
     box-sizing: border-box;
+    &:focus-within {
+    display: block;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-bottom: solid 1px #f26e22;
+  }
     ::placeholder {
         font-family: 'Spoqa Han Sans Neo';
         font-style: normal;
@@ -30,20 +38,12 @@ const InputData = styled.input.attrs({
         color: #DBDBDB;
     }
     margin-bottom: ${(props) => (props.marginBottom)}px;
-    
-    &:focus-within {
-    display: block;
-    width: 100%;
-    outline: none;
-    border: none;
-    border-bottom: solid 1px #f26e22;
-    }
 `
 
 
 function Input(props) {
 
-    const {label, marginBottom, placeholder, onChange, type, name} = props
+    const {label, marginBottom, placeholder, onChange, type, name, id} = props
     const inputRef = useRef()
 
     
@@ -58,6 +58,7 @@ function Input(props) {
                 marginBottom={marginBottom} 
                 placeholder={placeholder}
                 ref={inputRef}
+                id={id}
             />
         </>
     )
