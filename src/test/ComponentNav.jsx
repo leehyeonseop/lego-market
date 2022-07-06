@@ -7,7 +7,10 @@ const ComponentNav = () => {
     <NavBar>
       <ListWrapper>
         <ListItems>
-          <ListAnchor to="/">홈</ListAnchor>
+          <ListAnchor to="/">Splash</ListAnchor>
+        </ListItems>
+        <ListItems>
+          <ListAnchor to="/home">home 피드</ListAnchor>
         </ListItems>
         <ListItems>
           <ListAnchor to="/joinpage">회원가입</ListAnchor>
