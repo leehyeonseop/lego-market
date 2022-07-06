@@ -1,29 +1,30 @@
-import {createGlobalStyle} from "styled-components"
+// import { createGlobalStyle } from "styled-components";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import JoinPage from "./components/pages/JoinPage";
-import TopNav from "./components/TopNav";
-import reset from 'styled-reset'
+import reset from "styled-reset";
 import PostUploadPage from "./components/pages/PostUploadPage";
-import LoginPage from "./components/pages/LoginPage";
-import { useEffect } from "react";
-import ProfileUpdatePage from "./components/pages/ProfileUpdatePage";
+import ComponentNav from "./test/ComponentNav";
+import Home from "./components/pages/home/Home";
+import Splash from "./components/pages/splash/Splash";
+import GlobalStyle from "./styles/GlobalStyle"
+// const GlobalStyle = createGlobalStyle`
+//   ${reset}
 
-const GlobalStyle = createGlobalStyle`
-  ${reset}
-
-  * { font-family: 'Spoqa Han Sans Neo', 'sans-serif'; }
-`
-
+//   * { font-family: 'Spoqa Han Sans Neo', 'sans-serif'; }
+// `;
 
 function App() {
-
   return (
-    <div className="App">
+    <BrowserRouter>
       <GlobalStyle />
-      <LoginPage />
-      <PostUploadPage />
-      <JoinPage />
-      {/* <ProfileUpdatePage /> */}
-    </div>
+      <ComponentNav />
+      <Routes>
+        <Route path="/" element={<Splash />} />
+        <Route path="/home" element={<Home/>} />
+        <Route path="/postuploadpage" element={<PostUploadPage/>} />
+        <Route path="/joinpage" element={<JoinPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
