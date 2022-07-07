@@ -54,14 +54,15 @@ function Splash() {
     } else {
       console.log("token exist");
       setLoginState(true);
-      navigate("home");
+      navigate("home" , {state: accessToken});
     }
       setsplashLoading(true);
   }
   function saveToken() {
     const token =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyYjQwZjM0MTZjYTFiNjNmODY1NzgwMCIsImV4cCI6MTY2MjE5MzE5NiwiaWF0IjoxNjU3MDA5MTk2fQ.R09vFTYCOzolwJZvJn6kz2dMQl3X-dc61roeus5pXSY";
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyYjQwZjM0MTZjYTFiNjNmODY1NzgwMCIsImV4cCI6MTY2MjM0MjA1NiwiaWF0IjoxNjU3MTU4MDU2fQ.-DIXgJxXpOd5atponHNct7yjOLj_8s4GWhyGMq8Oew0"
     setAccessToken(token);
+    // navigate("home" , {state: {accessToken}});
   }
   function deleteToken() {
     setAccessToken(null);

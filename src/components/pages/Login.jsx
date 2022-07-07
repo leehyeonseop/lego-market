@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Input from "../ui/Input";
 import Button from "../ui/Button";
+import { Link } from "react-router-dom";
 
 const InputDiv = styled.div`
   display: block;
@@ -37,36 +38,34 @@ async function login() {
   console.log("login call");
   const email = document.querySelector("#email").value;
   const password = document.querySelector("#pw").value;
-try {
-  const url = "https://mandarin.api.weniv.co.kr";
-  const reqPath = "/user/login";
-  const loginData = {
-    user: {
-      email: email,
-      password: password,
-    },
-  };
-  const res = await fetch(url + reqPath, {
-    method: "POST",
-    headers: {
-      "Content-type": "application/json",
-    },
-    body: JSON.stringify(loginData),
-  });
-  const json = await res.json();
-  console.log(json, "제이손입니다");
-}
-catch(err){
-  console.log(err);
-}
+  try {
+    const url = "https://mandarin.api.weniv.co.kr";
+    const reqPath = "/user/login";
+    const loginData = {
+      user: {
+        email: email,
+        password: password,
+      },
+    };
+    const res = await fetch(url + reqPath, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(loginData),
+    });
+    const json = await res.json();
+    console.log(json, "제이손입니다");
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 const handleSubmit = (e) => {
   e.preventDefault();
-}
+};
 
 const Login = () => {
-
   return (
     <LoginMain>
       <section class="login-email-container">
@@ -91,7 +90,9 @@ const Login = () => {
               id="pw"
             />
           </InputDiv>
-          <Button type="submit" onClick={login} content="로그인" />
+          <Link to="/home">
+            <Button type="submit" onClick={login} content="로그인" />
+          </Link>
           <SignUP href="#">이메일로 회원가입</SignUP>
         </form>
       </section>
