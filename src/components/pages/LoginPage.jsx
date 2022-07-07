@@ -40,10 +40,12 @@ function LoginPage() {
 
     const handleEmail = (e) => {
         setEmail(e.target.value)
+        console.log(email);
     }
 
     const handlePw = (e) => {
         setPw(e.target.value)
+        console.log(pw);
     }
     
     const login = async () => {

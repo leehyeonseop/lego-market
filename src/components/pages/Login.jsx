@@ -38,6 +38,7 @@ async function login() {
   console.log("login call");
   const email = document.querySelector("#email").value;
   const password = document.querySelector("#pw").value;
+  console.log(email,password);
   try {
     const url = "https://mandarin.api.weniv.co.kr";
     const reqPath = "/user/login";
@@ -62,6 +63,9 @@ async function login() {
 }
 
 const handleSubmit = (e) => {
+  const email = document.querySelector("#email").value;
+  const pw = document.querySelector("#pw").value;
+  console.log(email,pw);
   e.preventDefault();
 };
 

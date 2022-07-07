@@ -54,13 +54,14 @@ function Splash() {
     } else {
       console.log("token exist");
       setLoginState(true);
-      navigate("home" , {state: accessToken});
+      navigate("home", { state: accessToken });
     }
-      setsplashLoading(true);
+    setsplashLoading(true);
   }
   function saveToken() {
     const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyYjQwZjM0MTZjYTFiNjNmODY1NzgwMCIsImV4cCI6MTY2MjM0MjA1NiwiaWF0IjoxNjU3MTU4MDU2fQ.-DIXgJxXpOd5atponHNct7yjOLj_8s4GWhyGMq8Oew0"
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyYjQwZjM0MTZjYTFiNjNmODY1NzgwMCIsImV4cCI6MTY2MjM1ODkyNCwiaWF0IjoxNjU3MTc0OTI0fQ.-RKmj5O6CIrTDq4RsQODLjP4CkPRvmGb3kEoTaJLkMo";
+    // 아놔 토큰이 계속 바뀜;
     setAccessToken(token);
     // navigate("home" , {state: {accessToken}});
   }
