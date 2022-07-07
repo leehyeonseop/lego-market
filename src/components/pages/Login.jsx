@@ -61,12 +61,17 @@ catch(err){
 }
 }
 
+const handleSubmit = (e) => {
+  e.preventDefault();
+}
+
 const Login = () => {
+
   return (
     <LoginMain>
       <section class="login-email-container">
         {/* <h2 class="ir">이메일, 비밀번호 입력</h2> */}
-        <form>
+        <form onSubmit={handleSubmit}>
           <H1 class="main-title login-email-title">로그인</H1>
           <InputDiv>
             <Input
@@ -86,7 +91,7 @@ const Login = () => {
               id="pw"
             />
           </InputDiv>
-          <Button onClick={login} content="로그인" />
+          <Button type="submit" onClick={login} content="로그인" />
           <SignUP href="#">이메일로 회원가입</SignUP>
         </form>
       </section>
