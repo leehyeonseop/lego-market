@@ -34,9 +34,10 @@ const H1 = styled.h1`
 `;
 
 async function login() {
+  console.log("login call");
   const email = document.querySelector("#email").value;
   const password = document.querySelector("#pw").value;
-
+try {
   const url = "https://mandarin.api.weniv.co.kr";
   const reqPath = "/user/login";
   const loginData = {
@@ -54,6 +55,10 @@ async function login() {
   });
   const json = await res.json();
   console.log(json, "제이손입니다");
+}
+catch(err){
+  console.log(err);
+}
 }
 
 const Login = () => {

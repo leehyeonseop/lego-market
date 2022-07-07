@@ -18,6 +18,9 @@ const ComponentNav = () => {
         <ListItems>
           <ListAnchor to="/postuploadpage">게시글작성</ListAnchor>
         </ListItems>
+        <ListItems>
+          <ListAnchor to="/login">로그인페이지</ListAnchor>
+        </ListItems>
       </ListWrapper>
     </NavBar>
   );
