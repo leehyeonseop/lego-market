@@ -34,7 +34,7 @@ function ImageSelect(props) {
         })
     
         const json = await response.json()
-
+        console.log(json);
         let filenameList = []
 
         if(multiple) {

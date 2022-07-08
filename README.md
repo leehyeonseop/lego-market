@@ -33,7 +33,8 @@
  ┃ ┣ 📂 components         
  ┃ ┃ ┣ 📂 home             // 한 페이지에 관련된 컴포넌트들은 한 폴더에 
  ┃ ┃ ┗ 📂 ui               // 재사용 가능한 UI 컴포넌트 모음
- ┃ ┣ 📂 pages              // 라우터로 넘기는 페이지 컴포넌트         
+ ┃ ┣ 📂 pages              // 라우터로 넘기는 페이지 컴포넌트    
+ ┃ ┃ ┗ Splash.jsx         
  ┃ ┣ 📂 hooks              // 만든 hook이 있으면 
  ┃ ┣ 📂 styles             // 공통 스타일 폴더 
  ┃ ┃ ┗ 📜 GlobalStyle.jsx

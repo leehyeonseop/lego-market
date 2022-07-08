@@ -67,6 +67,7 @@ function LoginPage() {
         })
 
         const json = await response.json()
+        console.log(json);
         console.log('token : ', json.user.token)
         localStorage.setItem("token", json.user.token)
     }

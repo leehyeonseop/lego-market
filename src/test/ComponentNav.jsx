@@ -24,6 +24,9 @@ const ComponentNav = () => {
         <ListItems>
           <ListAnchor to="/search">사용자검색</ListAnchor>
         </ListItems>
+        <ListItems>
+          <ListAnchor to="/test">테스트(전체유저검색)</ListAnchor>
+        </ListItems>
       </ListWrapper>
     </NavBar>
   );

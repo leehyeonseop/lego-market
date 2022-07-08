@@ -22,6 +22,7 @@ const LoginMain = styled.main`
   font-weight: 500;
   margin-bottom: 30px;
 `;
+
 const SignUP = styled.a`
   display: block;
   color: #767676;
@@ -30,6 +31,7 @@ const SignUP = styled.a`
   margin-top: 20px;
   text-decoration: none;
 `;
+
 const H1 = styled.h1`
   text-align: center;
 `;
