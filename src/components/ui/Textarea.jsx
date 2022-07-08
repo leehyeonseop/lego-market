@@ -15,6 +15,7 @@ function Textarea(props) {
     const {placeholder, onChange, value} = props
 
     return <StyledTextarea onChange={onChange} placeholder={placeholder} value={value}/>
+
 }
 
 export default Textarea

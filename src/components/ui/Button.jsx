@@ -20,6 +20,7 @@ const StyledButton = styled.button`
     }
 `
 
+
 function Button(props) {
 
     const {onClick, content} = props

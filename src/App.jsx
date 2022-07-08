@@ -1,34 +1,50 @@
-// import { createGlobalStyle } from "styled-components";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import JoinPage from "./components/pages/JoinPage";
-import reset from "styled-reset";
-import PostUploadPage from "./components/pages/PostUploadPage";
-import ComponentNav from "./test/ComponentNav";
-import Home from "./components/pages/home/Home";
-import Splash from "./components/pages/splash/Splash";
-import GlobalStyle from "./styles/GlobalStyle"
-import Login from "./components/pages/Login"
-import Search from "./components/pages/search/Search";
-// const GlobalStyle = createGlobalStyle`
-//   ${reset}
+import {createGlobalStyle} from "styled-components"
 
-//   * { font-family: 'Spoqa Han Sans Neo', 'sans-serif'; }
-// `;
+
+import reset from 'styled-reset'
+
+import { useEffect } from "react";
+import LoginPage from "./pages/LoginPage";
+import JoinPage from "./pages/JoinPage";
+import PostUploadPage from "./pages/PostUploadPage";
+import TopNav2 from "./components/TopNav2";
+import Button from "./components/ui/Button";
+import BackButton from "./components/ui/BackButton";
+import MoreButton from "./components/ui/MoreButton";
+import styled from "styled-components";
+import Search from "./components/ui/Search";
+
+const GlobalStyle = createGlobalStyle`
+  ${reset}
+
+  * { font-family: 'Spoqa Han Sans Neo', 'sans-serif'; }
+`
+
+const StyledTopNav = styled(TopNav2)`
+  padding: 8px 16px;
+  
+`
+
+
+
+
 
 function App() {
+
   return (
-    <BrowserRouter>
+    <div className="App">
       <GlobalStyle />
-      <ComponentNav />
-      <Routes>
-        <Route path="/" element={<Splash />} />
-        <Route path="/home" element={<Home/>} />
-        <Route path="/postuploadpage" element={<PostUploadPage/>} />
-        <Route path="/joinpage" element={<JoinPage />} />
-        <Route path="/login" element={<Login />} />
-        <Route path='/search' element={<Search />} />
-      </Routes>
-    </BrowserRouter>
+      <StyledTopNav
+        marginRight={20} 
+        leftChild={<BackButton />}
+        centerChild={<Search placeholder={"계정 검색"}/>} 
+        rightChild={<MoreButton />}
+      />
+      {/* <LoginPage /> */}
+      {/* <PostUploadPage /> */}
+      {/* <JoinPage /> */}
+      {/* <ProfileUpdatePage /> */}
+    </div>
   );
 }
 
